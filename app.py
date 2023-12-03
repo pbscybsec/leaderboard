@@ -1,8 +1,10 @@
 from flask import Flask, jsonify
+from flask_cors import CORS  # Import CORS extension to handle CORS headers
 from pymongo import MongoClient
 from config import Config
 
 app = Flask(__name__)
+CORS(app)  # Enable CORS for all routes, you can restrict it if needed
 app.config.from_object(Config)
 port = 3000  # You can change this port if needed
 
