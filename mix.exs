@@ -22,7 +22,7 @@ defmodule MyApp.MixProject do
   defp deps do
     [
       {:plug, "~> 1.12"},
-      {:mongodb, "~> 0.7"}
+      {:mongodb, "~> 0.5.1"}
     ]
   end
 end
