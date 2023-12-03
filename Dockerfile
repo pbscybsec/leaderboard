@@ -26,7 +26,7 @@ FROM openjdk:17.0.1-jdk-slim
 WORKDIR /app
 
 # Copy the JAR file from the build stage
-COPY --from=build /app/target/demo-0.0.1-SNAPSHOT.jar demo.jar
+COPY --from=build /app/target/leaderboard-0.0.1-SNAPSHOT.jar demo.jar
 
 EXPOSE 8080
 
