@@ -8,6 +8,9 @@ COPY mvnw .
 COPY .mvn .mvn
 COPY pom.xml .
 
+# Give execute permissions to the Maven Wrapper script
+RUN chmod +x mvnw
+
 # Download dependencies
 RUN ./mvnw dependency:go-offline -B
 
@@ -23,9 +26,8 @@ FROM openjdk:17.0.1-jdk-slim
 WORKDIR /app
 
 # Copy the JAR file from the build stage
-COPY --from=build target/demo-0.0.1-SNAPSHOT.jar demo.jar
+COPY --from=build /app/target/demo-0.0.1-SNAPSHOT.jar demo.jar
 
 EXPOSE 8080
 
 ENTRYPOINT ["java", "-jar", "demo.jar"]
-
