@@ -38,8 +38,6 @@ defmodule MyApp do
 
   def start do
     IO.puts "Server is running on http://localhost:#{@port}"
-    {:ok, _} = Plug.Adapters.Cowboy.http MyApp, [], port: @port
+    {:ok, _} = Plug.Adapters.Cowboy.http MyApp.Router, [], port: @port  # Change this line
   end
 end
-
-MyApp.start()
